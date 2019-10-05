@@ -4,8 +4,8 @@
 //in: [-10, 1, 3, 2, -10]
 //out: 300
 
-//time: O(n)
-//space:
+//time: O(n) linear time
+//space: O(1) constant space
 
 // BRUTE FORCE (n^3)
 // three nested loops
