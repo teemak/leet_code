@@ -53,17 +53,22 @@
 //time: O(n^2)
 //space: O(1)
 
+//SPACE COMPLEXITY
 function appleStocks(arr) {
-	let minPrice = arr[0];
+	let minPrice = arr[0]; //O(1)
 	//BUY THEN SELL
-	let maxProfit = arr[1] - arr[0];
+	let maxProfit = arr[1] - arr[0]; //O(1)
 
 	//START AT ONE - SO WE LOOP LENGTH - 1 ALREADY
 	for (let i = 1; i < arr.length; i++) {
-		let current = arr[i];
-		let currentProfit = current - minPrice;
+		//CONSTANT MEMORY
+		let current = arr[i]; //Constant
+		let currentProfit = current - minPrice; //constant
 		minPrice = Math.min(current, minPrice);
 		maxProfit = Math.max(currentProfit, maxProfit);
 	}
 	return maxProfit;
 }
+
+//time: O(n)
+//space: O(1) EVERY LINE IS CONSTANT

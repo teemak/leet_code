@@ -1,0 +1,27 @@
+{
+  "name": "leet_code",
+  "version": "1.0.0",
+  "description": "LeetCode Grind",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine",
+    "live": "live-server SpecRunner.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teemak/leet_code.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teemak/leet_code/issues"
+  },
+  "homepage": "https://github.com/teemak/leet_code#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine": "^3.5.0",
+    "jasmine-console-reporter": "^3.1.0",
+    "live-server": "^1.2.1"
+  }
+}
