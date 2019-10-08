@@ -42,18 +42,19 @@
 function mergeArrays(arr1, arr2) {
 	let result = [];
 	let p1 = 0,
-		p2 = 0;
+		p2 = 0,
+		counter = 0;
 
-	while (p1 < arr1.length || p2 < arr2.length) {
-		if (arr1[p1] < arr2[p2]) {
+	while (counter < arr1.length + arr2.length) {
+		if (arr1[p1] < arr2[p2] || arr2[p2] === undefined) {
 			result.push(arr1[p1]);
 			p1++;
 		} else {
 			result.push(arr2[p2]);
 			p2++;
 		}
+		counter++;
 	}
-
 	return result;
 }
 
