@@ -1,3 +1,5 @@
+const appleStocks = require("../../interviewCake/appleStocks");
+
 describe("Test suite for finding maximum profit", () => {
 	it("should return max value of 4 values", () => {
 		let input = [1, 5, 3, 2];

@@ -1,3 +1,5 @@
+const highestProductOf3 = require("../../interviewCake/highestProductOf3");
+
 describe("Test for highest product of 3", () => {
 	it("should test for all positive numbers", () => {
 		let input = [1, 2, 3, 4];
