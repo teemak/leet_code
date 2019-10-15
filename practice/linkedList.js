@@ -44,13 +44,51 @@ function LinkedList() {
 	};
 }
 
+function reverseSection(head, m, n) {
+	if (m == n) return head;
+
+	// find beginning part
+	let prev = head;
+	let left = null;
+	for (let i = 1; i < m; i++) {
+		left = prev;
+		prev = prev.next;
+	}
+	let right = prev;
+
+	// REVERSE
+	let current = prev.next;
+	let next = null;
+	let numReverse = n - m;
+	while (current != -null && numReverse-- > 0) {
+		next = current.next;
+		current.next = prev;
+		prev = current;
+		current = next;
+	}
+
+	// fix connections
+	right.next = next;
+	if (left === null) {
+		return prev;
+	} else {
+		left.next = prev;
+		return head;
+	}
+}
+
 const a = Node(1);
 const b = Node(2);
 const c = Node(3);
+const d = Node(4);
+const e = Node(5);
 const list = LinkedList();
 
-list.insert(a);
+list.append(a);
+list.append(d);
 list.append(c);
-list.insert(b, 1);
+list.append(b);
+list.append(e);
 
+reverseSection(list, 2, 4);
 console.log(JSON.stringify(list, null, 6));
