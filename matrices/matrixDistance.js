@@ -9,6 +9,8 @@
 //
 //
 function matrixDistance(R, C, r0, c0) {
+	/*
+	//Breadth first
 	const result = [];
 	const floorIdx = R - 1;
 	const wallIdx = C - 1;
@@ -57,7 +59,7 @@ function matrixDistance(R, C, r0, c0) {
 		}
 	}
 	return result;
-	/* 
+	*/
 	const result = [];
 	for (let r = 0; r < R; r++) {
 		for (let c = 0; c < C; c++) {
@@ -68,24 +70,23 @@ function matrixDistance(R, C, r0, c0) {
 	result.sort((a, b) => a[2] - b[2]);
 	result.map(arr => arr.pop());
 	return result;
-	*/
 }
 
 //let result = matrixDistance(1, 2, 0, 0);
 //let result = matrixDistance(2, 2, 0, 1);
 let result1 = matrixDistance(1, 2, 0, 0);
 let result2 = matrixDistance(2, 2, 0, 1);
-let result3 = matrixDistance(2, 3, 1, 2);
+let result3 = matrixDistance(3, 3, 0, 0);
 
-console.log("result:\t\t", result1);
+//console.log("result:\t\t", result1);
 const expected1 = [[0, 0], [0, 1]];
-console.log("expected:\t", expected1);
+//console.log("expected:\t", expected1);
 console.log("result:\t\t", result2);
 const expected2 = [[0, 1], [0, 0], [1, 1], [1, 0]];
-console.log("expected:\t", expected2);
-console.log("result:\t\t", result3);
-const expected3 = [[1, 2], [0, 2], [1, 1], [0, 1], [1, 0], [0, 0]];
-console.log("expected:\t", expected3);
+//console.log("expected:\t", expected2);
+//console.log("result:\t\t", result3);
+//const expected3 = [[1, 2], [0, 2], [1, 1], [0, 1], [1, 0], [0, 0]];
+//console.log("expected:\t", expected3);
 
 //   1,2
 //   x  x  x
