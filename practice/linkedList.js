@@ -44,27 +44,30 @@ function LinkedList() {
 	};
 }
 
-function reverseSection(head, m, n) {
-	if (m == n) return head;
-
+function reverseSection(list, m, n) {
+	let { head } = list;
 	// find beginning part
 	let prev = head;
 	let left = null;
+	// FIND OUT THE BEGINNING OF SWAP INDEX
 	for (let i = 1; i < m; i++) {
 		left = prev;
 		prev = prev.next;
 	}
+	// THE END RESULT START VALUE
 	let right = prev;
+	console.log("RIGHT SIDE", right);
 
 	// REVERSE
-	let current = prev.next;
+	let current = prev.next; // tail
 	let next = null;
 	let numReverse = n - m;
-	while (current != -null && numReverse-- > 0) {
-		next = current.next;
-		current.next = prev;
-		prev = current;
-		current = next;
+
+	while (current !== null && numReverse-- > 0) {
+		next = current.next; //temp
+		current.next = prev; //head
+		prev = current; //temp.next
+		current = next; //newHead
 	}
 
 	// fix connections
@@ -82,13 +85,23 @@ const b = Node(2);
 const c = Node(3);
 const d = Node(4);
 const e = Node(5);
+const f = Node(6);
+const g = Node(7);
+const h = Node(8);
+const i = Node(9);
+const j = Node(10);
 const list = LinkedList();
 
 list.append(a);
-list.append(d);
-list.append(c);
 list.append(b);
+list.append(c);
+list.append(d);
 list.append(e);
+list.append(f);
+list.append(g);
+list.append(h);
+list.append(i);
+list.append(j);
 
-reverseSection(list, 2, 4);
+//reverseSection(list, 2, 9);
 console.log(JSON.stringify(list, null, 6));
