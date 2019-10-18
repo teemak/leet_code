@@ -10,77 +10,57 @@ function BinaryTree() {
 	return {
 		root: null,
 		size: 0,
-		// iterative
 		insert(node) {
 			if (!this.root) {
 				this.root = node;
 				this.size++;
 				return;
-			}
-			let parent = null;
-			let child = this.root;
-			// looking for spot to insert
-			// looking for a null spot
-			while (child !== null) {
-				parent = child;
-				// which direction should the search traverse
-				child = parent.val > node.val ? parent.left : parent.right;
-			}
-
-			// which side to insert
-			if (parent.val > node.val) {
-				parent.left = node;
 			} else {
-				parent.right = node;
-			}
-			this.size++;
-			return;
-		},
-		// recursive
-		findInsert(node) {
-			// EMPTY EDGE CASE
-			if (!this.size) {
-				this.root = node;
-				this.size++;
-			} else {
-				// helper function
-				const travelInsert = current => {
-					// RIGHT
-					if (node.val > current.val) {
-						// IS IT EMPTY?
+				const findInsert = current => {
+					if (current.val < node.val) {
+						//RIGHT SIDE
 						if (current.right === null) {
 							current.right = node;
 						} else {
-							// keep traveling to the right
-							travelInsert(current.right);
+							findInsert(current.right);
 						}
-					} else if (node.val < current.val) {
-						// LEFT
-						// Keep looking for an empty spot
+					} else if (current.val > node.val) {
+						//LEFT SIDE
 						if (current.left === null) {
 							current.left = node;
 						} else {
-							travelInsert(current.left);
+							findInsert(current.left);
 						}
 					}
 				};
-				travelInsert(this.root);
+
+				findInsert(this.root);
 				this.size++;
+				return;
 			}
-			return;
 		},
+		remove(node) {
+			let seen = [];
+			return seen;
+		}
 	};
 }
 
-let a = Node(11);
-let b = Node(8);
-let c = Node(13);
-let d = Node(23);
+const a = Node(88);
+const b = Node(33);
+const c = Node(66);
+const d = Node(44);
+const e = Node(11);
+const f = Node(99);
+const g = Node(22);
 
-let tree = BinaryTree();
+const tree = BinaryTree();
 tree.insert(a);
 tree.insert(b);
 tree.insert(c);
-tree.findInsert(d);
+tree.insert(d);
+tree.insert(e);
+tree.insert(f);
+tree.insert(g);
 
 console.log(JSON.stringify(tree, null, 6));
