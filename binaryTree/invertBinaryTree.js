@@ -64,10 +64,19 @@ const invertTreeBfs = root => {
 	return root;
 };
 
+const invertFast = root => {
+	if (!root) return root;
+
+	let temp = root.left;
+	root.left = root.right;
+	root.right = temp;
+
+	invertFast(root.left);
+	invertFast(root.right);
+
+	return root;
+};
+
 let input = serialize([4, 2, 7, 1, 3, 6, 9]);
-let resultRec = invertTreeRec(input);
-let resultDfs = invertTreeDfs(input);
-let resultBfs = invertTreeBfs(input);
-//console.log(JSON.stringify(resultRec, null, 6));
-console.log(JSON.stringify(resultDfs, null, 6));
-//console.log(JSON.stringify(resultBfs, null, 6));
+let fastResult = invertFast(input);
+console.log(JSON.stringify(fastResult, null, 6));
