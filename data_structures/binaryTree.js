@@ -10,6 +10,15 @@ function binaryTree() {
 	return {
 		root: null,
 		size: 0,
+		fastInsert(root, node) {
+			if (!node) return node;
+			if (node.val > root.val) {
+				root.right = this.fastInsert(root.right, node);
+			} else {
+				root.left = this.fastInsert(root.left, node);
+			}
+			return root;
+		},
 		insert(node) {
 			if (!this.size) {
 				this.root = node;

@@ -23,7 +23,8 @@ function constructMaxBinary(nums) {
 }
 
 function maxBinary(nums, start = 0, end = nums.length - 1) {
-	if (start > end) return null;
+	if (start < 0 || end < start || end >= nums.length) return null;
+	//if (start > end) return null;
 	let max = start;
 
 	for (let i = start + 1; i <= end; i++) {
