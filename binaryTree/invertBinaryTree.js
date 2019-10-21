@@ -79,4 +79,8 @@ const invertFast = root => {
 
 let input = serialize([4, 2, 7, 1, 3, 6, 9]);
 let fastResult = invertFast(input);
+//let result = invertTreeBfs(input);
+console.log("Original", [4, 2, 7, 1, 3, 6, 9]);
+console.log("Expected", [4, 7, 2, 9, 6, 3, 1]);
+console.log("*******************");
 console.log(JSON.stringify(fastResult, null, 6));
