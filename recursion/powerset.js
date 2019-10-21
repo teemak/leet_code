@@ -18,6 +18,9 @@ function powersetDfs(s) {
 
 	function dfs(current, index) {
 		result.push(current);
+		//optimization
+		if(current.length === s.length) return;
+
 		for (let i = index; i < s.length; i++) {
 			dfs(current.concat(s[i]), i + 1);
 		}
@@ -69,7 +72,21 @@ function subsets(s) {
 	}
 }
 
+function fastest(arr) {
+	const ps = [];
+	if (arr.length <= 1) {
+		ps.push([]);
+		ps.push(arr);
+	} else {
+		for (let curr of powerset(arr.slice(1))) {
+			ps.push([arr[0]].concat(curr));
+			ps.push(curr);
+		}
+	}
+	return ps;
+}
+
 let input = [1, 2, 3];
 //let result = subsets(input);
-let result = powerset(input);
+let result = fastest(input);
 console.log(result);
