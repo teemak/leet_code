@@ -45,7 +45,7 @@ function Node(val) {
 
 let input = [1, 2, 3, null, null, 4, 5];
 let result = deserialize(input);
-console.log(JSON.stringify(result, null, 6));
+console.log(JSON.stringify(result));
 
 let normal = serialize(result);
 console.log(normal);
