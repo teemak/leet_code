@@ -10,6 +10,12 @@ function Node(data, prev, next) {
 	};
 }
 
+function add(newNode) {
+	tail.next = newNode;
+	newNode.prev = tail;
+	tail = newNode;
+}
+
 function init() {
 	head = new Node("San Francisco");
 	head.prev = null;
@@ -37,7 +43,9 @@ function print(node) {
 
 	/** moving next pointer **/
 	let string = "";
-	while (p !== null) {
+	while (p !== null || p !== undefined) {
+		console.log("WHAT IS P?", p);
+		console.log("***********\n");
 		let data = p.getData();
 		string += data + " => ";
 		end = p;
@@ -57,4 +65,5 @@ function print(node) {
 }
 
 init();
+add(new Node("Walnut"));
 print(head);
